@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-		<title>Eat-Da-Burger!</title>
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/assets/js/cats.js"></script>
-	</head>
-	<body>
-		{{{ body }}}
-	</body>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/burger_style.css">
+</head>
+
+
+<body>
+    {{!-- background image --}}
+    <img src="/assets/img/burger.png" id="comic" alt="">
+
+    <h2 class="text-align: center">Eat-Da-Burger!</h2>
+
+
+    {{{ body }}}
+
+
+    <div class="row">
+        <div class="col lg3">
+            <form action="/burgers" method="POST">
+                <input type="text" id="name" name="burger_name" placeholder="Burger Name">
+                <button type="submit" class="addBurgerButton">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <h7>"Submit" a burger you would like to eat!</h7>
+
+    <footer class="burgerFooter">
+        <div class="container">
+            <a class="black-text text-lighten-4 right" href="https://cusco1982.github.io/portfolio/" target="_blank">Portfolio</a>
+        </div>
+    </footer>
+
+</body>
+
+
+
+
 </html>

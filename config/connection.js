@@ -1,22 +1,32 @@
-// Set up MySQL connection.
-var mysql = require("mysql");
+// Inside the connection.js file, setup the code to connect Node to MySQL.
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "PASS",
-  database: "cat_db"
+// Export the connection
+// require('dotenv').config();
+
+var mysql = require('mysql');
+
+// heroku database
+// if (process.env.JAWSDB_URL) { 
+// connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+
+// running on localhost
+connection = mysql.createConnection({
+    port: 3306,
+    host: 'localhost',
+    user: 'root',
+    password: "PASS",
+    database: 'burger_db'
+});
+// };
+
+connection.connect(function (err) {
+    if (err) {
+        // console.error('ERROR: MySQL connection error -- ' + err.stack);
+        console.log('MySQL error: ', err);
+        return;
+    }
+    console.log('Connected to MySQL database as id: ', connection.threadId, "\n\n");
 });
 
-// Make connection.
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-});
-
-// Export connection for our ORM to use.
 module.exports = connection;
